@@ -7,63 +7,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "00B82666-2D04-4547-B125-04972F2C197A"
-            shouldBeEnabled = "No"
+            uuid = "8EC8F6ED-9AE4-489C-AD5B-23D132594C26"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TheBundle/Model/ConverterService.swift"
+            filePath = "TheBundle/Model/TranslateService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "getCurrency(callback:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getTranslate(frenchText:callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8DBEC7E0-4959-4107-9EEB-1E8317D80613"
-            shouldBeEnabled = "Yes"
+            uuid = "16126993-E189-4A61-8BC4-423E10917D84"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TheBundle/Controller/ConverterViewController.swift"
+            filePath = "TheBundle/Controller/TranslateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "update(currency:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "searchTranslate()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8DBEC7E0-4959-4107-9EEB-1E8317D80613 - a9bfc3de6dba6e07"
+                  uuid = "16126993-E189-4A61-8BC4-423E10917D84 - 3bbfdec9c85984f8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TheBundle.ConverterViewController.update(currency: TheBundle.Currency) -&gt; ()"
+                  symbolName = "TheBundle.TranslateViewController.searchTranslate() -&gt; ()"
                   moduleName = "TheBundle"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Controller/ConverterViewController.swift"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Controller/TranslateViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "100">
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "434">
                </Location>
                <Location
-                  uuid = "8DBEC7E0-4959-4107-9EEB-1E8317D80613 - a9bfc3de6dba6e66"
+                  uuid = "16126993-E189-4A61-8BC4-423E10917D84 - f5bf29085a4d6681"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TheBundle.ConverterViewController.update(currency: TheBundle.Currency) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;TheBundle.Translations&gt;) -&gt; () in TheBundle.TranslateViewController.searchTranslate() -&gt; ()"
                   moduleName = "TheBundle"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Controller/ConverterViewController.swift"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Controller/TranslateViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "100">
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "111">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -71,15 +71,173 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3DB6D971-A128-45EF-A3B5-B228377DA2C6"
+            uuid = "D9457765-5CD7-495C-8188-A8CC21F85AEC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBundle/Model/TranslateService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getTranslate(frenchText:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9457765-5CD7-495C-8188-A8CC21F85AEC - fd41a55d1bef197"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TheBundle.TranslateService.getTranslate(frenchText: Swift.String, callback: (Swift.Bool, Swift.Optional&lt;TheBundle.Translations&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheBundle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/TranslateService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "227">
+               </Location>
+               <Location
+                  uuid = "D9457765-5CD7-495C-8188-A8CC21F85AEC - fd41a55d1bef197"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TheBundle.TranslateService.getTranslate(frenchText: Swift.String, callback: (Swift.Bool, Swift.Optional&lt;TheBundle.Translations&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheBundle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/TranslateService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "345">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30BEC836-5E7A-4CB6-B783-A675B9755330"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheBundle/Model/WeatherService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getweather(callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "30BEC836-5E7A-4CB6-B783-A675B9755330 - e0944e96f36acd09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TheBundle.WeatherService.getweather(callback: (Swift.Bool, Swift.Optional&lt;TheBundle.Weather&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheBundle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/WeatherService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "30BEC836-5E7A-4CB6-B783-A675B9755330 - e0944e96f36acd09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TheBundle.WeatherService.getweather(callback: (Swift.Bool, Swift.Optional&lt;TheBundle.Weather&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheBundle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/WeatherService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  uuid = "30BEC836-5E7A-4CB6-B783-A675B9755330 - e0944e96f36acd09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TheBundle.WeatherService.getweather(callback: (Swift.Bool, Swift.Optional&lt;TheBundle.Weather&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheBundle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/WeatherService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "301">
+               </Location>
+               <Location
+                  uuid = "30BEC836-5E7A-4CB6-B783-A675B9755330 - e0944e96f36acd09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TheBundle.WeatherService.getweather(callback: (Swift.Bool, Swift.Optional&lt;TheBundle.Weather&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheBundle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/WeatherService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "425">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E0954DF-76FB-4D10-8D13-72289126F5C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBundle/Model/WeatherService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getweather(callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A48EF415-5132-416A-95BF-22CD112F9A24"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBundle/Model/WeatherService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getweather(callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68C0C30A-4F77-4863-B8B3-2D07AAD25E8F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBundle/Model/WeatherService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "getweather(callback:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -23,9 +23,9 @@ class WeatherService {
     
     func getweather(callback: @escaping(Bool, Weather?) -> Void) {
         var request = URLRequest(url: WeatherService.weatherUrl)
-        request.httpMethod = "POST"
-        let body = "q=paris&appid=64bbd9f8c871bd0c0734b4775075cd98&units=metric"
-        request.httpBody = body.data(using: .utf8)
+        request.httpMethod = "GET"
+    //    let body = ""
+    //    request.httpBody = body.data(using: .utf8)
         
         
         task?.cancel()
@@ -44,15 +44,18 @@ class WeatherService {
                     return
                 }
                 guard let name = responseJSON["name"],
-                      let weatherDescription = responseJSON["weather/description"],
-                      let mainTemperature = responseJSON["main/temp"] else {
+                let weather = responseJSON["weather[2].description"],
+                let main = responseJSON["main[0].temp"] else {
                     callback (false, nil)
                     return
                 }
                 
-                let weather = Weather(name: name, mainTemperature: mainTemperature, weatherDescription: weatherDescription)
+            //    let weather = Weather (name: name, weather: [Weathers], main: main )
+                let weather = Weather (weather: weather.name, main: weather.weather.description, name: main )
                 callback (true, weather)
-            }
+                
+           }
+
         }
         
         task?.resume()

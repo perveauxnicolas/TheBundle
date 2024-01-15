@@ -7,8 +7,30 @@
 
 import Foundation
 
-struct Weather {
+//struct Weather {
+//    var name: String
+//    var mainTemperature: String
+//    var weatherDescription: String
+//}
+
+
+struct Weather: Decodable {
+    var weather: [Weathers]
+    var main: Main
     var name: String
-    var mainTemperature: String
-    var weatherDescription: String
+}
+
+struct Weathers: Codable {
+    var id: Int
+    var main: String
+    var description: String
+    var icon: String
+}
+
+struct Main: Codable {
+    var temp: Double
+    var pressure: Double
+    var humidity: Double
+    var temp_min: Double
+    var temp_max: Double
 }

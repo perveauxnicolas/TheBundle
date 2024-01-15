@@ -36,7 +36,7 @@ class WeatherViewController: UIViewController {
                 self.presentAlert()
                 return
             }
-            self.update(weather: weather)
+            self.updateWeather(weather: weather)
         }
     }
     
@@ -46,10 +46,10 @@ class WeatherViewController: UIViewController {
     }
     
     
-    private func update(weather: Weather) {
+    private func updateWeather(weather: Weather) {
         cityName.text = weather.name
-        weatherTemperature.text = weather.mainTemperature
-        weatherDescription.text = weather.weatherDescription
+        weatherTemperature.text = String(weather.main.temp)
+        weatherDescription.text = weather.weather.description
     }
     
     private func presentAlert() {
@@ -57,6 +57,6 @@ class WeatherViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
-    
+  
     
 }

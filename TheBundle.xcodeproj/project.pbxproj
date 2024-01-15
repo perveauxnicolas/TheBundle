@@ -12,7 +12,6 @@
 		8B3250772B4423FB0091BE96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B3250752B4423FB0091BE96 /* Main.storyboard */; };
 		8B3250792B4423FC0091BE96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B3250782B4423FC0091BE96 /* Assets.xcassets */; };
 		8B32507C2B4423FC0091BE96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B32507A2B4423FC0091BE96 /* LaunchScreen.storyboard */; };
-		8B3250872B4423FC0091BE96 /* TheBundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3250862B4423FC0091BE96 /* TheBundleTests.swift */; };
 		8B3250AC2B4460ED0091BE96 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3250AB2B4460ED0091BE96 /* ConverterViewController.swift */; };
 		8B3250AE2B4461A10091BE96 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3250AD2B4461A10091BE96 /* TranslateViewController.swift */; };
 		8B3250B02B4462C70091BE96 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3250AF2B4462C70091BE96 /* WeatherViewController.swift */; };
@@ -20,6 +19,13 @@
 		8B4B8ED92B456FF300B7EC28 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8ED82B456FF300B7EC28 /* Currency.swift */; };
 		8B4B8EDB2B45B27700B7EC28 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EDA2B45B27700B7EC28 /* WeatherService.swift */; };
 		8B4B8EDD2B45B3C400B7EC28 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EDC2B45B3C400B7EC28 /* Weather.swift */; };
+		8B4B8EE12B4EEA9D00B7EC28 /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EE02B4EEA9D00B7EC28 /* TranslateService.swift */; };
+		8B4B8EE72B4FF5DF00B7EC28 /* TranslateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EE62B4FF5DF00B7EC28 /* TranslateServiceTests.swift */; };
+		8B4B8EEB2B4FF86300B7EC28 /* Translate.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B8EEA2B4FF86300B7EC28 /* Translate.json */; };
+		8B4B8EED2B4FFBBB00B7EC28 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EEC2B4FFBBB00B7EC28 /* FakeResponseData.swift */; };
+		8B4B8EF32B50326E00B7EC28 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EF22B50326E00B7EC28 /* URLSessionFake.swift */; };
+		8B4B8EF52B54867500B7EC28 /* Translations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EF42B54867500B7EC28 /* Translations.swift */; };
+		8B5831AB2B55B48D00D4C02E /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B5831AA2B55B48D00D4C02E /* Weather.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +47,6 @@
 		8B32507B2B4423FC0091BE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B32507D2B4423FC0091BE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B3250822B4423FC0091BE96 /* TheBundleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheBundleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B3250862B4423FC0091BE96 /* TheBundleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheBundleTests.swift; sourceTree = "<group>"; };
 		8B3250AB2B4460ED0091BE96 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		8B3250AD2B4461A10091BE96 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		8B3250AF2B4462C70091BE96 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		8B4B8ED82B456FF300B7EC28 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		8B4B8EDA2B45B27700B7EC28 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		8B4B8EDC2B45B3C400B7EC28 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		8B4B8EE02B4EEA9D00B7EC28 /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
+		8B4B8EE62B4FF5DF00B7EC28 /* TranslateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateServiceTests.swift; sourceTree = "<group>"; };
+		8B4B8EEA2B4FF86300B7EC28 /* Translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translate.json; sourceTree = "<group>"; };
+		8B4B8EEC2B4FFBBB00B7EC28 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		8B4B8EF22B50326E00B7EC28 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		8B4B8EF42B54867500B7EC28 /* Translations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translations.swift; sourceTree = "<group>"; };
+		8B5831AA2B55B48D00D4C02E /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +114,11 @@
 		8B3250852B4423FC0091BE96 /* TheBundleTests */ = {
 			isa = PBXGroup;
 			children = (
-				8B3250862B4423FC0091BE96 /* TheBundleTests.swift */,
+				8B4B8EE62B4FF5DF00B7EC28 /* TranslateServiceTests.swift */,
+				8B4B8EEA2B4FF86300B7EC28 /* Translate.json */,
+				8B4B8EEC2B4FFBBB00B7EC28 /* FakeResponseData.swift */,
+				8B4B8EF22B50326E00B7EC28 /* URLSessionFake.swift */,
+				8B5831AA2B55B48D00D4C02E /* Weather.json */,
 			);
 			path = TheBundleTests;
 			sourceTree = "<group>";
@@ -125,6 +141,8 @@
 				8B4B8ED82B456FF300B7EC28 /* Currency.swift */,
 				8B4B8EDA2B45B27700B7EC28 /* WeatherService.swift */,
 				8B4B8EDC2B45B3C400B7EC28 /* Weather.swift */,
+				8B4B8EE02B4EEA9D00B7EC28 /* TranslateService.swift */,
+				8B4B8EF42B54867500B7EC28 /* Translations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +256,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B5831AB2B55B48D00D4C02E /* Weather.json in Resources */,
+				8B4B8EEB2B4FF86300B7EC28 /* Translate.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +274,8 @@
 				8B3250AE2B4461A10091BE96 /* TranslateViewController.swift in Sources */,
 				8B4B8EDD2B45B3C400B7EC28 /* Weather.swift in Sources */,
 				8B3250722B4423FB0091BE96 /* SceneDelegate.swift in Sources */,
+				8B4B8EF52B54867500B7EC28 /* Translations.swift in Sources */,
+				8B4B8EE12B4EEA9D00B7EC28 /* TranslateService.swift in Sources */,
 				8B4B8ED72B4492FD00B7EC28 /* ConverterService.swift in Sources */,
 				8B4B8ED92B456FF300B7EC28 /* Currency.swift in Sources */,
 				8B3250AC2B4460ED0091BE96 /* ConverterViewController.swift in Sources */,
@@ -264,7 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B3250872B4423FC0091BE96 /* TheBundleTests.swift in Sources */,
+				8B4B8EED2B4FFBBB00B7EC28 /* FakeResponseData.swift in Sources */,
+				8B4B8EF32B50326E00B7EC28 /* URLSessionFake.swift in Sources */,
+				8B4B8EE72B4FF5DF00B7EC28 /* TranslateServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -407,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -429,9 +453,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos*]" = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,9 +482,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos*]" = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = perveaux.TheBundleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,7 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = perveaux.TheBundleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
