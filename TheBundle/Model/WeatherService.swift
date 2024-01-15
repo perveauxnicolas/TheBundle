@@ -51,8 +51,8 @@ class WeatherService {
                 }
                 
             //    let weather = Weather (name: name, weather: [Weathers], main: main )
-                let weather = Weather (weather: weather.name, main: weather.weather.description, name: main )
-                callback (true, weather)
+     //           let weather = Weather (weather: weather.name, main: weather.weather.description, name: main )
+       //         callback (true, weather)
                 
            }
 

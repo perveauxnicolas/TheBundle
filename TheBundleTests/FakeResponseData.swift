@@ -9,11 +9,11 @@ import Foundation
 
 class FakeResponseData {
     static let responseOK = HTTPURLResponse(
-        url: URL(string: "https://openclassrooms.com")!,
+        url: URL(string: "https://xxxxxxx.com")!,
         statusCode: 200, httpVersion: nil, headerFields: [:])!
     
     static let responseKO = HTTPURLResponse(
-        url: URL(string: "https://openclassrooms.com")!,
+        url: URL(string: "https://https://xxxxxxx.com")!,
         statusCode: 500, httpVersion: nil, headerFields: [:])!
     
     class TranslateError: Error {}

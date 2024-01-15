@@ -47,13 +47,13 @@ class TranslateService {
                     callback (false, nil)
                     return
                 }
-                guard let translations = responseJSON["data.translations[0].translatedText"] else {
+                guard let text = responseJSON["data.translations[0].translatedText"] else {
                     callback (false, nil)
                     return
                 }
                 
-       //         let translations = Translations(translations.data.translations[0].translatedTexe: translatedText)
-       //         callback (true, translations)
+      //          let translations = Translations(translation.data.translations[0].translatedTexe: text)
+       //       callback (true, translations)
             }
         }
         

@@ -23,19 +23,9 @@ class TranslateViewController: UIViewController {
     @IBAction func tappedTranslateButton(_ sender: Any) {
         searchTranslate()
     }
-    /*       TranslateService.shared.getTranslate { succes, Translate in
-     self.toggleActivityIndicator(shown: false)
-     guard let translate = Translate, succes == true else {
-     self.presentAlert()
-     return
-     }
-     self.update(translate: translate)
-     }
-     }
-     */
     
     func searchTranslate() {
- 
+        
         guard let frenchText = frenchTextField.text else { return }
         
         toggleActivityIndicator(shown: true)
@@ -50,7 +40,7 @@ class TranslateViewController: UIViewController {
         }
     }
     
-    // MARK: - methodes
+    // MARK: - Methodes
     
     private func toggleActivityIndicator(shown: Bool) {
         translateButton.isHidden = shown
@@ -67,6 +57,7 @@ class TranslateViewController: UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
 }
+// MARK: - Extentions
 
 extension TranslateViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ frenchTextField: UITextField) -> Bool {
@@ -74,7 +65,7 @@ extension TranslateViewController: UITextFieldDelegate {
         searchTranslate()
         return true
     }
-
+    
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         frenchTextField.resignFirstResponder()
     }
