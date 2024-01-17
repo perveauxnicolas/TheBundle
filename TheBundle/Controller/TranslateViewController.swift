@@ -25,20 +25,19 @@ class TranslateViewController: UIViewController {
     }
     
     func searchTranslate() {
-        
         guard let frenchText = frenchTextField.text else { return }
-        
         toggleActivityIndicator(shown: true)
         
-        TranslateService.shared.getTranslate(frenchText: frenchText) { succes, translations in
+        TranslateService.shared.getTranslation(frenchText: frenchText) { (succes,settings, translationResult) in
             self.toggleActivityIndicator(shown: false)
-            guard let translations = translations, succes == true else {
+            guard let result = translationResult, succes == true else {
                 self.presentAlert()
                 return
             }
-            self.updateTranslate(translations: translations)
+            self.updateTranslate (translationResult: result)
         }
     }
+    
     
     // MARK: - Methodes
     
@@ -47,8 +46,9 @@ class TranslateViewController: UIViewController {
         translateActivityIndicator.isHidden = !shown
     }
     
-    private func updateTranslate (translations: Translations) {
-        englishtextLabel.text = translations.data.translations[0].translatedText
+    private func updateTranslate (translationResult: TranslationResult) {
+        englishtextLabel.text = translationResult.data.translations[0].translatedText
+        
     }
     
     private func presentAlert() {
@@ -57,6 +57,7 @@ class TranslateViewController: UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
 }
+
 // MARK: - Extentions
 
 extension TranslateViewController: UITextFieldDelegate {

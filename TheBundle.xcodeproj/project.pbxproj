@@ -24,8 +24,8 @@
 		8B4B8EEB2B4FF86300B7EC28 /* Translate.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B8EEA2B4FF86300B7EC28 /* Translate.json */; };
 		8B4B8EED2B4FFBBB00B7EC28 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EEC2B4FFBBB00B7EC28 /* FakeResponseData.swift */; };
 		8B4B8EF32B50326E00B7EC28 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EF22B50326E00B7EC28 /* URLSessionFake.swift */; };
-		8B4B8EF52B54867500B7EC28 /* Translations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B8EF42B54867500B7EC28 /* Translations.swift */; };
 		8B5831AB2B55B48D00D4C02E /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B5831AA2B55B48D00D4C02E /* Weather.json */; };
+		8B5831AD2B57F11900D4C02E /* TranslationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5831AC2B57F11900D4C02E /* TranslationResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +59,8 @@
 		8B4B8EEA2B4FF86300B7EC28 /* Translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translate.json; sourceTree = "<group>"; };
 		8B4B8EEC2B4FFBBB00B7EC28 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		8B4B8EF22B50326E00B7EC28 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
-		8B4B8EF42B54867500B7EC28 /* Translations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translations.swift; sourceTree = "<group>"; };
 		8B5831AA2B55B48D00D4C02E /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
+		8B5831AC2B57F11900D4C02E /* TranslationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 				8B4B8EDA2B45B27700B7EC28 /* WeatherService.swift */,
 				8B4B8EDC2B45B3C400B7EC28 /* Weather.swift */,
 				8B4B8EE02B4EEA9D00B7EC28 /* TranslateService.swift */,
-				8B4B8EF42B54867500B7EC28 /* Translations.swift */,
+				8B5831AC2B57F11900D4C02E /* TranslationResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,8 +274,8 @@
 				8B3250AE2B4461A10091BE96 /* TranslateViewController.swift in Sources */,
 				8B4B8EDD2B45B3C400B7EC28 /* Weather.swift in Sources */,
 				8B3250722B4423FB0091BE96 /* SceneDelegate.swift in Sources */,
-				8B4B8EF52B54867500B7EC28 /* Translations.swift in Sources */,
 				8B4B8EE12B4EEA9D00B7EC28 /* TranslateService.swift in Sources */,
+				8B5831AD2B57F11900D4C02E /* TranslationResult.swift in Sources */,
 				8B4B8ED72B4492FD00B7EC28 /* ConverterService.swift in Sources */,
 				8B4B8ED92B456FF300B7EC28 /* Currency.swift in Sources */,
 				8B3250AC2B4460ED0091BE96 /* ConverterViewController.swift in Sources */,

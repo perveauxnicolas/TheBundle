@@ -6,16 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 class TranslateService {
     
     static var shared = TranslateService()
     private init() {}
     
-    private static let translateUrl = URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBHc3cGxB7KETEziAYDp2nWSsuIkg75jT0")!
-    /*  "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBHc3cGxB7KETEziAYDp2nWSsuIkg75jT0&q=\(frenchText)&target=en&source=fr")!
-     */
-    
+    private let translateUrl = URL(string: "https://translation.googleapis.com/language/translate/v2")!
+    private let apikeyTranslate = "AIzaSyBHc3cGxB7KETEziAYDp2nWSsuIkg75jT0"
     private var task: URLSessionDataTask?
     private var translateSession = URLSession(configuration: .default)
     
@@ -24,42 +23,53 @@ class TranslateService {
     }
     
     
-    func getTranslate(frenchText: String ,callback: @escaping(Bool, Translations?) -> Void) {
-        var request = URLRequest(url: TranslateService.translateUrl )
+    func getTranslation(frenchText : String, completionHandler: @escaping ((Bool, Settings?, TranslationResult? ) -> Void)) {
+        
+        var request = URLRequest(url: translateUrl)
         request.httpMethod = "POST"
         
-        let body = "&q=\(frenchText)&target=en&source=fr"
+        let body = "key=\(apikeyTranslate)&q=\(frenchText)&source=fr&target=en&format=text"
         request.httpBody = body.data(using: .utf8)
         
-        
         task?.cancel()
+        
         task = translateSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    callback (false, nil)
+                    //   print ("ERROR: \(String(describing: error?.localizedDescription))")
+                    completionHandler (false, Settings.errorData,nil)
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback (false, nil)
+                    //   print ("ERROR: \(String(describing: response))")
+                    completionHandler (false, Settings.errorReponseTranslate, nil)
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode([String: String].self, from: data) else {
-                    callback (false, nil)
-                    return
-                }
-                guard let text = responseJSON["data.translations[0].translatedText"] else {
-                    callback (false, nil)
+                guard let result = try? JSONDecoder().decode(TranslationResult.self, from: data) else {
+                    //  print("JSON ERROR: \(String(describing: error?.localizedDescription))")
+                    completionHandler (false, Settings.errorJson, nil)
                     return
                 }
                 
-      //          let translations = Translations(translation.data.translations[0].translatedTexe: text)
-       //       callback (true, translations)
+                completionHandler (true, nil, result)
             }
+            
         }
-        
         task?.resume()
     }
+    
+    enum Settings: String {
+        case errorData = "Invalid data provider"
+        case errorReponseTranslate = "error Reponse Translate"
+        case errorJson = "error Json"
+    }
+    
+    func getAlert(_ error: Settings) -> UIAlertController {
+        let alert = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(confirmAction)
+        return alert
+    }
+    
+    
 }
-
-
-//translations.data.translations[0].translatedText: textToTranslate
