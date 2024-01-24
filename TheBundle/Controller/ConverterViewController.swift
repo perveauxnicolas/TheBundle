@@ -13,36 +13,41 @@ class ConverterViewController: UIViewController {
     
     @IBOutlet weak var currencyATextField: UITextField!
     @IBOutlet weak var currencyBLabel: UILabel!
-    @IBOutlet weak var converterActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var converterButton: UIButton!
     
-
+    
     // MARK: - ACTIONS
     
     @IBAction func tappedConverterButton(_ sender: Any) {
-        toggleActivityIndicator (shown: true)
+        searchConvertion()
+    }
+    
+    func searchConvertion() {
+        guard let currencyA = Double(currencyATextField.text!) else { return }
+        toggleActivityIndicator(shown: true)
         
-        ConverterService.shared.getCurrency { succes, currency in
+        ConvertionService.shared.getConvertion(currencyA: currencyA) { (succes,settings, convertionResult) in
             self.toggleActivityIndicator(shown: false)
-            guard let currency = currency, succes == true else {
+            guard let result = convertionResult, succes == true else {
                 self.presentAlert()
                 return
             }
-            self.update(currency:currency)
+           self.updateTranslate (convertionResult: result)
         }
-        
     }
     
     // MARK: - methode
     private func toggleActivityIndicator(shown: Bool) {
         converterButton.isHidden = shown
-        converterActivityIndicator.isHidden = !shown
+        ActivityIndicator.isHidden = !shown
     }
     
-    
-    func update(currency: Currency) {
-        currencyBLabel.text = currency.ratesUsd
-    
+
+    func updateTranslate(convertionResult : ConvertionResult) {
+        guard let resultA =  convertionResult.rates["USD"] else { return }
+        currencyBLabel.text = String(resultA)
+        
     }
     
     func presentAlert() {
@@ -50,7 +55,24 @@ class ConverterViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
+}
+
+
+// MARK: - Extentions
+
+extension ConverterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ currencyATextField: UITextField) -> Bool {
+        currencyATextField.resignFirstResponder()
+        searchConvertion()
+        return true
+    }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        currencyATextField.resignFirstResponder()
+    }
+
+
+
     
     
     

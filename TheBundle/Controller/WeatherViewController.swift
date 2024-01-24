@@ -9,47 +9,53 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherTemperature: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var nowButton: UIButton!
-    @IBOutlet weak var weatherActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addShadowTocityLabel()
-    }
-    
-    private func addShadowTocityLabel() {
-        cityName.layer.shadowColor = UIColor.black.cgColor
-        cityName.layer.shadowOpacity = 0.9
-        cityName.layer.shadowOffset = CGSize(width: 1, height: 1)
-    }
-    
+      override func viewDidLoad() {
+     super.viewDidLoad()
+     addShadowTocityLabel()
+     }
+     
+     private func addShadowTocityLabel() {
+         weatherTemperature.layer.shadowColor = UIColor.black.cgColor
+         weatherTemperature.layer.shadowOpacity = 0.9
+         weatherTemperature.layer.shadowOffset = CGSize(width: 1, height: 1)
+     }
+    /*  */
     
     @IBAction func tappedNowButton(_ sender: Any) {
+        searchWeather()
+    }
+    
+    
+    func searchWeather() {
         toggleActivityIndicator(shown: true)
         
-        WeatherService.shared.getweather { succes, weather in
+        WeatherService.shared.getWeather { (succes,settings, weatherResult) in
             self.toggleActivityIndicator(shown: false)
-            guard let weather = weather, succes == true else {
+            guard let weatherResult = weatherResult, succes == true else {
                 self.presentAlert()
                 return
             }
-            self.updateWeather(weather: weather)
+            self.updateWeather (weatherResult: weatherResult)
         }
     }
     
     private func toggleActivityIndicator(shown: Bool) {
         nowButton.isHidden = shown
-        weatherActivityIndicator.isHidden = !shown
+        ActivityIndicator.isHidden = !shown
     }
     
-    
-    private func updateWeather(weather: Weather) {
-        cityName.text = weather.name
-        weatherTemperature.text = String(weather.main.temp)
-        weatherDescription.text = weather.weather.description
+    private func updateWeather(weatherResult: WeatherResult) {
+        cityNameLabel.text = weatherResult.name
+        weatherTemperature.text = String(weatherResult.main.temp)
+        weatherDescription.text = weatherResult.weather[2].description
+        
+        
     }
     
     private func presentAlert() {
@@ -57,6 +63,5 @@ class WeatherViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
-  
     
 }

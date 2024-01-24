@@ -18,16 +18,18 @@ class TranslateServiceTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-    TranslateService.shared.getTranslation(frenchText: "x") { (succes,settings, translationResult) in
+    translateService.getTranslation(frenchText: "bonjour") { (succes,settings, translationResult) in
             // Then
             XCTAssertFalse(succes)
             XCTAssertNil(translationResult)
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 00.01)
+        wait(for: [expectation], timeout: 0.01)
     }
-    /*
+    
+    
+     
     func testGetTranslateShouldPostFailedCallbackIfNoData() {
         // Given
         let translateService = TranslateService (
@@ -35,7 +37,7 @@ class TranslateServiceTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        TranslateService.shared.getTranslation(frenchText: "x") { (succes,settings, translationResult) in
+        translateService.getTranslation(frenchText: "bonjour") { (succes,settings, translationResult) in
             // Then
             XCTAssertFalse(succes)
             XCTAssertNil(translationResult)
@@ -52,7 +54,7 @@ class TranslateServiceTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        TranslateService.shared.getTranslation(frenchText: "x") { (succes,settings, translationResult) in
+        translateService.getTranslation(frenchText: "bonjour") { (succes,settings, translationResult) in
             // Then
             XCTAssertFalse(succes)
             XCTAssertNil(translationResult)
@@ -73,7 +75,7 @@ class TranslateServiceTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        TranslateService.shared.getTranslation(frenchText: "x") { (succes,settings, translationResult) in
+        translateService.getTranslation(frenchText: "bonjour") { (succes,settings, translationResult) in
             // Then
             XCTAssertFalse(succes)
             XCTAssertNil(translationResult)
@@ -82,7 +84,31 @@ class TranslateServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 0.01)
     }
+   
+    func testGetTranslateShouldPostSuccessCallback() {
+        // Given
+        let translateService = TranslateService (
+            translateSession: URLSessionFake (
+                data: FakeResponseData.translateCorrectData,
+                response: FakeResponseData.responseOK,
+                error: nil))
+
+        // When
+        let frenchText = "bonjour"
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        translateService.getTranslation(frenchText: frenchText) { (succes,settings, translationResult) in
+            
+            // Then
+            XCTAssertTrue(succes)
+            XCTAssertNotNil(translationResult)
+            let result = "good morning"
+            XCTAssertEqual(result, translationResult?.data.translations[0].translatedText)
+        
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 0.01)
+    }
     
     
-    */
 }

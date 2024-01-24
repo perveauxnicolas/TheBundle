@@ -1,39 +1,39 @@
 //
-//  TranslateService.swift
+//  ConvertionService.swift
 //  TheBundle
 //
-//  Created by Perveaux Nicolas on 10/01/2024.
+//  Created by Perveaux Nicolas on 02/01/2024.
 //
 
 import Foundation
-import UIKit
 
-class TranslateService {
+
+
+class ConvertionService {
     
-    static var shared = TranslateService()
+    static var shared = ConvertionService()
     private init() {}
     
-    private let translateUrl = URL(string: "https://translation.googleapis.com/language/translate/v2")!
-    private let apikeyTranslate = "AIzaSyBHc3cGxB7KETEziAYDp2nWSsuIkg75jT0"
+    private let currencyUrl = URL(string: "http://data.fixer.io/api/latest")!
+    private let apikeyConvertion = "5ff447c427a92807c43a16e73c61691a"
     private var task: URLSessionDataTask?
-    private var translateSession = URLSession(configuration: .default)
+    private var convertionSession = URLSession(configuration: .default)
     
-    init( translateSession: URLSession ) {
-        self.translateSession = translateSession
+    init( convertionSession: URLSession ) {
+        self.convertionSession = convertionSession
     }
     
-    
-    func getTranslation(frenchText : String, completionHandler: @escaping ((Bool, Settings?, TranslationResult? ) -> Void)) {
+    func getConvertion(currencyA: Double, completionHandler: @escaping ((Bool, Settings?, ConvertionResult? ) -> Void)) {
         
-        var request = URLRequest(url: translateUrl)
+        var request = URLRequest(url: currencyUrl )
         request.httpMethod = "POST"
         
-        let body = "key=\(apikeyTranslate)&q=\(frenchText)&source=fr&target=en&format=text"
+        let body = "access_key=\(apikeyConvertion)"
         request.httpBody = body.data(using: .utf8)
         
         task?.cancel()
         
-        task = translateSession.dataTask(with: request) { (data, response, error) in
+        task = convertionSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     completionHandler (false, Settings.errorData,nil)
@@ -43,10 +43,12 @@ class TranslateService {
                     completionHandler (false, Settings.errorReponseTranslate, nil)
                     return
                 }
-                guard let result = try? JSONDecoder().decode(TranslationResult.self, from: data) else {
+                
+                guard let result = try? JSONDecoder().decode(ConvertionResult.self, from: data) else {
                     completionHandler (false, Settings.errorJson, nil)
                     return
                 }
+                
                 completionHandler (true, nil, result)
             }
             
@@ -60,8 +62,4 @@ class TranslateService {
         case errorJson = "error Json"
     }
     
-    
 }
-
-
-
