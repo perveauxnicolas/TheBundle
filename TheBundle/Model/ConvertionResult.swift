@@ -8,9 +8,11 @@
 import Foundation
 
 struct ConvertionResult: Codable {
-    let success: Bool
-    let timestamp: TimeInterval
-    let base : String
-    let date: String
-    let rates: [String: Double]
+    var base: String
+    var date: String
+    var rates: Rates
+}
+
+struct Rates: Codable {
+    var USD: Double
 }

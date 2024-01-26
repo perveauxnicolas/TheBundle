@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B07D33E2B62AAC9006FA30A /* WeatherResultB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B07D33D2B62AAC9006FA30A /* WeatherResultB.swift */; };
 		8B1F9DA12B5EE5C4000FBE57 /* ConvertionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1F9DA02B5EE5C4000FBE57 /* ConvertionServiceTests.swift */; };
 		8B3250702B4423FB0091BE96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B32506F2B4423FB0091BE96 /* AppDelegate.swift */; };
 		8B3250722B4423FB0091BE96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3250712B4423FB0091BE96 /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B07D33D2B62AAC9006FA30A /* WeatherResultB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResultB.swift; sourceTree = "<group>"; };
 		8B1F9DA02B5EE5C4000FBE57 /* ConvertionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertionServiceTests.swift; sourceTree = "<group>"; };
 		8B32506C2B4423FB0091BE96 /* TheBundle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheBundle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B32506F2B4423FB0091BE96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				8B56A95E2B5C801C00EDE16D /* ConvertionResult.swift */,
 				8B4B8EDA2B45B27700B7EC28 /* WeatherService.swift */,
 				8B5831AE2B5AB61C00D4C02E /* WeatherResult.swift */,
+				8B07D33D2B62AAC9006FA30A /* WeatherResultB.swift */,
 				8B4B8EE02B4EEA9D00B7EC28 /* TranslateService.swift */,
 				8B5831AC2B57F11900D4C02E /* TranslationResult.swift */,
 			);
@@ -306,6 +309,7 @@
 				8B3250702B4423FB0091BE96 /* AppDelegate.swift in Sources */,
 				8B3250B02B4462C70091BE96 /* WeatherViewController.swift in Sources */,
 				8B56A95F2B5C801C00EDE16D /* ConvertionResult.swift in Sources */,
+				8B07D33E2B62AAC9006FA30A /* WeatherResultB.swift in Sources */,
 				8B3250AE2B4461A10091BE96 /* TranslateViewController.swift in Sources */,
 				8B3250722B4423FB0091BE96 /* SceneDelegate.swift in Sources */,
 				8B4B8EE12B4EEA9D00B7EC28 /* TranslateService.swift in Sources */,

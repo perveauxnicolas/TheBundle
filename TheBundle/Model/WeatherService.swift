@@ -12,23 +12,31 @@ class WeatherService {
     static var shared = WeatherService()
     private init() {}
     
-    private let weatherUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather")!
-    private let apikeyWeather = "64bbd9f8c871bd0c0734b4775075cd98"
+    private let weatherUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=paris&appid=64bbd9f8c871bd0c0734b4775075cd98&units=metric")!
+    private let weatherUrlB = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=new york&appid=64bbd9f8c871bd0c0734b4775075cd98&units=metric")!
+ // private let apikeyWeather = "64bbd9f8c871bd0c0734b4775075cd98"
+    
     private var task: URLSessionDataTask?
     private var weatherSession = URLSession(configuration: .default)
+    private var weatherSessionB = URLSession(configuration: .default)
     
-    init( weatherSession: URLSession ) {
+    init(weatherSession: URLSession , weatherSessionB: URLSession) {
         self.weatherSession = weatherSession
+        self.weatherSessionB = weatherSessionB
+    }
+    enum Settings: String {
+        case errorData = "Invalid data provider"
+        case errorReponseTranslate = "error Reponse Weather"
+        case errorJson = "error Json"
     }
     
     
     func getWeather( completionHandler: @escaping ((Bool, Settings?, WeatherResult? ) -> Void)) {
-        
         var request = URLRequest(url: weatherUrl)
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
         
-        let body = "appid=\(apikeyWeather)&q=paris&units=metric"
-        request.httpBody = body.data(using: .utf8)
+     //   let body = "appid=\(apikeyWeather)&q=paris&units=metric"
+     //   request.httpBody = body.data(using: .utf8)
         
         task?.cancel()
         
@@ -46,25 +54,39 @@ class WeatherService {
                     completionHandler (false, Settings.errorJson, nil)
                     return
                 }
-                /*       guard let name = result["weatherResult.name"],
-                 let temperature = result["weatherResult.main.temp"],
-                 let descritpion = result["weatherResult.weather[2].description"] else {
-                 completionHandler (false, Settings.errorJson2, nil)
-                 return
-                 }
-                 let weatherResult = WeatherResult(name: name,temperature: temperature, descritpion: descritpion ) */
                 completionHandler (true, nil, result)
             }
         }
         task?.resume()
     }
-    enum Settings: String {
-        case errorData = "Invalid data provider"
-        case errorReponseTranslate = "error Reponse Translate"
-        case errorJson = "error Json"
-        case errorJson2 = "error 2 Json"
-    }
     
+    func getWeatherB( completionHandler: @escaping ((Bool, Settings?, WeatherResultB? ) -> Void)) {
+        
+        var request = URLRequest(url: weatherUrlB)
+        request.httpMethod = "GET"
+        
+        task?.cancel()
+        
+        task = weatherSessionB.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    completionHandler (false, Settings.errorData,nil)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    completionHandler (false, Settings.errorReponseTranslate, nil)
+                    return
+                }
+                guard let result = try? JSONDecoder().decode(WeatherResultB.self, from: data) else {
+                    completionHandler (false, Settings.errorJson, nil)
+                    return
+                }
+                completionHandler (true, nil, result)
+            }
+        }
+        task?.resume()
+    }
+  
     
     
 }

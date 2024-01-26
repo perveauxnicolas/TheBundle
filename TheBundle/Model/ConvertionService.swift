@@ -14,8 +14,8 @@ class ConvertionService {
     static var shared = ConvertionService()
     private init() {}
     
-    private let currencyUrl = URL(string: "http://data.fixer.io/api/latest")!
-    private let apikeyConvertion = "5ff447c427a92807c43a16e73c61691a"
+    private let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=5ff447c427a92807c43a16e73c61691a")!
+  //  private let apikeyConvertion = "5ff447c427a92807c43a16e73c61691a"
     private var task: URLSessionDataTask?
     private var convertionSession = URLSession(configuration: .default)
     
@@ -26,10 +26,10 @@ class ConvertionService {
     func getConvertion(currencyA: Double, completionHandler: @escaping ((Bool, Settings?, ConvertionResult? ) -> Void)) {
         
         var request = URLRequest(url: currencyUrl )
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
         
-        let body = "access_key=\(apikeyConvertion)"
-        request.httpBody = body.data(using: .utf8)
+   //     let body = "access_key=\(apikeyConvertion)"
+   //     request.httpBody = body.data(using: .utf8)
         
         task?.cancel()
         
@@ -43,13 +43,13 @@ class ConvertionService {
                     completionHandler (false, Settings.errorReponseTranslate, nil)
                     return
                 }
-                
+                print(data)
                 guard let result = try? JSONDecoder().decode(ConvertionResult.self, from: data) else {
                     completionHandler (false, Settings.errorJson, nil)
                     return
                 }
+                    completionHandler (true, nil, result)
                 
-                completionHandler (true, nil, result)
             }
             
         }
@@ -61,5 +61,6 @@ class ConvertionService {
         case errorReponseTranslate = "error Reponse Translate"
         case errorJson = "error Json"
     }
+        
     
 }

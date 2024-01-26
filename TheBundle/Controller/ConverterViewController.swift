@@ -45,9 +45,12 @@ class ConverterViewController: UIViewController {
     
 
     func updateTranslate(convertionResult : ConvertionResult) {
-        guard let resultA =  convertionResult.rates["USD"] else { return }
-        currencyBLabel.text = String(resultA)
+   //     guard let currencyA = currencyATextField.text else { return }
+   //     let currencyB = convertionResult.rates.USD
+   //     let dollard = Double()
+   //     Double(currencyA)  Double(currencyB) = dollard
         
+        currencyBLabel.text = String(convertionResult.rates.USD)
     }
     
     func presentAlert() {
@@ -71,16 +74,4 @@ extension ConverterViewController: UITextFieldDelegate {
         currencyATextField.resignFirstResponder()
     }
 
-
-
-    
-    
-    
 }
-
-
-
-
-
-
-

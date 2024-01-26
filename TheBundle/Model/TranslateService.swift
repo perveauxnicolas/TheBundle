@@ -60,8 +60,4 @@ class TranslateService {
         case errorJson = "error Json"
     }
     
-    
 }
-
-
-
