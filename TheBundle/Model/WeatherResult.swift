@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct WeatherResult: Codable {
     var weather: [Weather]
     var main: Main

@@ -10,18 +10,25 @@ import UIKit
 class TranslateViewController: UIViewController {
     
     // MARK: - Outlets
-    
     @IBOutlet weak var frenchTextField: UITextField!
     @IBOutlet weak var englishtextLabel: UILabel!
     @IBOutlet weak var translateActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var translateButton: UIButton!
     
-    
-    
-    // MARK: - Actions
-    
+    // MARK: - Actions    
     @IBAction func tappedTranslateButton(_ sender: Any) {
         searchTranslate()
+    }
+    
+    // MARK: - Methodes
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addShadowTocityLabel()
+    }
+    
+    private func addShadowTocityLabel() {
+        translateButton.layer.shadowColor = UIColor.gray.cgColor
+        translateButton.layer.shadowOpacity = 0.9
     }
     
     func searchTranslate() {
@@ -38,9 +45,6 @@ class TranslateViewController: UIViewController {
         }
     }
     
-    
-    // MARK: - Methodes
-    
     private func toggleActivityIndicator(shown: Bool) {
         translateButton.isHidden = shown
         translateActivityIndicator.isHidden = !shown
@@ -48,19 +52,11 @@ class TranslateViewController: UIViewController {
     
     private func updateTranslate (translationResult: TranslationResult) {
         englishtextLabel.text = translationResult.data.translations[0].translatedText
-        
-    }
-    
-    private func presentAlert() {
-        let alertVC = UIAlertController(title: "Error", message: "weather download failed.", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alertVC, animated: true, completion: nil)
     }
     
 }
 
-// MARK: - Extentions
-
+// MARK: - Keyboard
 extension TranslateViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ frenchTextField: UITextField) -> Bool {
         frenchTextField.resignFirstResponder()

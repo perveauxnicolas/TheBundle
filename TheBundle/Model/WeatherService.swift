@@ -7,14 +7,15 @@
 
 import Foundation
 
+
 class WeatherService {
     
+    // MARK: - PROPERTIES
     static var shared = WeatherService()
     private init() {}
     
     private let weatherUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=paris&appid=64bbd9f8c871bd0c0734b4775075cd98&units=metric")!
     private let weatherUrlB = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=new york&appid=64bbd9f8c871bd0c0734b4775075cd98&units=metric")!
- // private let apikeyWeather = "64bbd9f8c871bd0c0734b4775075cd98"
     
     private var task: URLSessionDataTask?
     private var weatherSession = URLSession(configuration: .default)
@@ -24,19 +25,17 @@ class WeatherService {
         self.weatherSession = weatherSession
         self.weatherSessionB = weatherSessionB
     }
+    
+    // MARK: - METHODS
     enum Settings: String {
         case errorData = "Invalid data provider"
         case errorReponseTranslate = "error Reponse Weather"
         case errorJson = "error Json"
     }
     
-    
     func getWeather( completionHandler: @escaping ((Bool, Settings?, WeatherResult? ) -> Void)) {
         var request = URLRequest(url: weatherUrl)
         request.httpMethod = "GET"
-        
-     //   let body = "appid=\(apikeyWeather)&q=paris&units=metric"
-     //   request.httpBody = body.data(using: .utf8)
         
         task?.cancel()
         
@@ -61,7 +60,6 @@ class WeatherService {
     }
     
     func getWeatherB( completionHandler: @escaping ((Bool, Settings?, WeatherResultB? ) -> Void)) {
-        
         var request = URLRequest(url: weatherUrlB)
         request.httpMethod = "GET"
         
@@ -86,7 +84,6 @@ class WeatherService {
         }
         task?.resume()
     }
-  
     
     
 }

@@ -100,7 +100,7 @@ final class ConvertionServiceTests: XCTestCase {
             XCTAssertTrue(succes)
             XCTAssertNotNil(convertionResult)
             let result = 1.092091
-            XCTAssertEqual(result, convertionResult?.rates["USD"])
+            XCTAssertEqual(result, convertionResult?.rates.USD)
             
             expectation.fulfill()
         }

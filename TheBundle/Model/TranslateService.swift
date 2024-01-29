@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import UIKit
 
 class TranslateService {
     
+    // MARK: - PROPERTIES
     static var shared = TranslateService()
     private init() {}
     
@@ -22,6 +22,12 @@ class TranslateService {
         self.translateSession = translateSession
     }
     
+    // MARK: - METHODS
+    enum Settings: String {
+        case errorData = "Invalid data provider"
+        case errorReponseTranslate = "error Reponse Translate"
+        case errorJson = "error Json"
+    }
     
     func getTranslation(frenchText : String, completionHandler: @escaping ((Bool, Settings?, TranslationResult? ) -> Void)) {
         
@@ -36,7 +42,7 @@ class TranslateService {
         task = translateSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    completionHandler (false, Settings.errorData,nil)
+                    completionHandler (false, Settings.errorData ,nil)
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -54,10 +60,5 @@ class TranslateService {
         task?.resume()
     }
     
-    enum Settings: String {
-        case errorData = "Invalid data provider"
-        case errorReponseTranslate = "error Reponse Translate"
-        case errorJson = "error Json"
-    }
     
 }
