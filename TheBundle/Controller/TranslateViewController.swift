@@ -27,7 +27,7 @@ class TranslateViewController: UIViewController {
     }
     
     private func addShadowTocityLabel() {
-        translateButton.layer.shadowColor = UIColor.gray.cgColor
+        translateButton.layer.shadowColor = UIColor.black.cgColor
         translateButton.layer.shadowOpacity = 0.9
     }
     

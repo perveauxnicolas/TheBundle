@@ -61,7 +61,7 @@ class ConverterViewController: UIViewController {
     }
     
     private func updateConvertion(convertionResult : ConvertionResult) {
-        rateLabel.text = String(convertionResult.rates.USD)
+        rateLabel.text = String(format: "%.4f",convertionResult.rates.USD)
     }
     /*
      func presentAlert() {

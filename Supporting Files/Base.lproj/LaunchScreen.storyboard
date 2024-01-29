@@ -16,22 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bundle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwG-Ew-d36">
-                                <rect key="frame" x="112.33333333333333" y="407.66666666666669" width="168.66666666666669" height="37"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="31"/>
-                                <color key="textColor" red="0.027385437861084938" green="0.033229533582925797" blue="0.039751376956701279" alpha="0.53350062090000006" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jt8-gv-6fU">
-                                <rect key="frame" x="76" y="206" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kzy-za-yDp">
+                                <rect key="frame" x="112.33333333333333" y="347.66666666666669" width="168.66666666666669" height="157"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TheBundle" translatesAutoresizingMaskIntoConstraints="NO" id="jt8-gv-6fU">
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="112"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jt8-gv-6fU" secondAttribute="height" multiplier="127:112" id="M2u-1F-PDP"/>
+                                            <constraint firstAttribute="height" constant="112" id="bQ9-Lt-XYX"/>
+                                            <constraint firstAttribute="width" constant="127" id="tAS-SD-fFR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bundle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwG-Ew-d36">
+                                        <rect key="frame" x="0.0" y="120" width="168.66666666666666" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="31"/>
+                                        <color key="textColor" red="0.027385437861084938" green="0.033229533582925797" blue="0.039751376956701279" alpha="0.53350062090000006" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BwG-Ew-d36" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mDS-SU-XW6"/>
-                            <constraint firstItem="BwG-Ew-d36" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pVy-aW-N6P"/>
+                            <constraint firstItem="kzy-za-yDp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DFK-AN-YsJ"/>
+                            <constraint firstItem="kzy-za-yDp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gtl-Co-RbA"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,4 +49,7 @@
             <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TheBundle" width="25" height="25"/>
+    </resources>
 </document>
