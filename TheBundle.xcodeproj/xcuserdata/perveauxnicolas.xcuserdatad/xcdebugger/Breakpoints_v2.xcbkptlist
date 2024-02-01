@@ -7,35 +7,66 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CA9BD23D-F4DE-4051-8356-D05896E3D915"
+            uuid = "E8935CAF-D6BB-4A64-8F33-9AA587724448"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBundle/Controller/WeatherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D56F90B1-50C4-4A33-8924-3FB02FFAC0FB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheBundle/Model/ConvertionService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "ConvertionService"
-            landmarkType = "3">
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init(convertionSession:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CA9BD23D-F4DE-4051-8356-D05896E3D915 - 3e0c9cffba96071c"
+                  uuid = "D56F90B1-50C4-4A33-8924-3FB02FFAC0FB - 4d6759930560eff7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TheBundle.ConvertionService.() -&gt; TheBundle.ConvertionService.init() -&gt; TheBundle.ConvertionService"
+                  symbolName = "default argument 0 of TheBundle.ConvertionService.init(convertionSession: __C.NSURLSession) -&gt; TheBundle.ConvertionService"
                   moduleName = "TheBundle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/ConvertionService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "67">
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "11">
                </Location>
                <Location
-                  uuid = "CA9BD23D-F4DE-4051-8356-D05896E3D915 - b4bac13119759ec0"
+                  uuid = "D56F90B1-50C4-4A33-8924-3FB02FFAC0FB - 923823f9446a5b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBundle.ConvertionService.__allocating_init(convertionSession: __C.NSURLSession) -&gt; TheBundle.ConvertionService"
+                  moduleName = "TheBundle"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/ConvertionService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  uuid = "D56F90B1-50C4-4A33-8924-3FB02FFAC0FB - b4bac13119759e27"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -45,27 +76,11 @@
                   urlString = "file:///Users/perveauxnicolas/Documents/XCODE/TheBundle/TheBundle/Model/ConvertionService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "90">
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "87">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B4C4E2B6-2B65-4829-91FE-2598F6DE3E91"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheBundle/Controller/ConverterViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "searchConvertion()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -30,6 +30,7 @@ class WeatherViewController: UIViewController {
     // MARK: - Methodes
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchWeather()
         addShadowTocityLabel()
     }
     
@@ -42,8 +43,8 @@ class WeatherViewController: UIViewController {
         weatherTemperatureB.layer.shadowOpacity = 0.9
         degreeBLabel.layer.shadowColor = UIColor.blue.cgColor
         degreeBLabel.layer.shadowOpacity = 0.9
-        weatherButton.layer.shadowColor = UIColor.blue.cgColor
-        weatherButton.layer.shadowOpacity = 0.5
+        weatherButton.layer.shadowColor = UIColor.black.cgColor
+        weatherButton.layer.shadowOpacity = 0.9
     }
     
     func searchWeather() {
@@ -52,7 +53,7 @@ class WeatherViewController: UIViewController {
         WeatherService.shared.getWeather { (succes,settings, weatherResult) in
             self.toggleActivityIndicator(shown: false)
             guard let weatherResult = weatherResult, succes == true else {
-                self.presentAlert()
+        //        self.presentAlert()
                 return
             }
             self.updateWeather(weatherResult: weatherResult)
@@ -64,7 +65,7 @@ class WeatherViewController: UIViewController {
             WeatherService.shared.getWeatherB { (succes,settings, weatherResultB) in
                 self.toggleActivityIndicator(shown: false)
                 guard let weatherResultB = weatherResultB, succes == true else {
-                    self.presentAlert()
+         //           self.presentAlert()
                     return
                 }
                 self.updateWeatherB(weatherResultB: weatherResultB)
@@ -79,13 +80,13 @@ class WeatherViewController: UIViewController {
     
     private func updateWeather(weatherResult: WeatherResult) {
         cityNameLabel.text = weatherResult.name
-        weatherTemperature.text = String(weatherResult.main.temp)
+        weatherTemperature.text = String(format: "%.0f", weatherResult.main.temp)
         weatherDescription.text = weatherResult.weather[0].description
     }
     
     private func updateWeatherB(weatherResultB: WeatherResultB) {
         cityNameLabelB.text = weatherResultB.name
-        weatherTemperatureB.text = String(weatherResultB.main.temp)
+        weatherTemperatureB.text = String(format: "%.0f", weatherResultB.main.temp)
         weatherDescriptionB.text = weatherResultB.weather[0].description
     }
     

@@ -17,6 +17,7 @@ class TranslateViewController: UIViewController {
     
     // MARK: - Actions    
     @IBAction func tappedTranslateButton(_ sender: Any) {
+        frenchTextField.resignFirstResponder()
         searchTranslate()
     }
     
@@ -38,7 +39,7 @@ class TranslateViewController: UIViewController {
         TranslateService.shared.getTranslation(frenchText: frenchText) { (succes,settings, translationResult) in
             self.toggleActivityIndicator(shown: false)
             guard let result = translationResult, succes == true else {
-                self.presentAlert()
+              //  self.presentAlert()
                 return
             }
             self.updateTranslate (translationResult: result)

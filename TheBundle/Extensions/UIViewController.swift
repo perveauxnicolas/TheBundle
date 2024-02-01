@@ -7,19 +7,22 @@
 
 import UIKit
 
-extension UIViewController {
+extension UIViewController  {
     
-    func presentAlert() {
-        let alertVC = UIAlertController(title: "Error", message:"The currency download failed.", preferredStyle: .alert)
+    func presentAlert(error: Settings) {
+        let alertVC = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
-  
-    /*    func presentAlert(error: ConvertionService.Settings) {
-     let alertVC = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
-     alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-     self.present(alertVC, animated: true, completion: nil)
-     }*/
     
+    func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, validateConverterButton: UIButton) {
+        validateConverterButton.isHidden = shown
+        activityIndicator.isHidden = !shown
+    }
     
+    func updateConvertion(convertionResult : ConvertionResult, rateLabel: UILabel) {
+        rateLabel.text = String(format: "%.4f",convertionResult.rates.USD)
+    }
+    
+   
 }

@@ -9,18 +9,19 @@ import UIKit
 
 class ConverterViewController: UIViewController {
     
-    // MARK: - OUTLETS    
+    // MARK: - OUTLETS
     @IBOutlet weak var currencyATextField: UITextField!
     @IBOutlet weak var currencyBLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var converterButton: UIButton!
     
     var convertionService = ConvertionService(convertionSession: URLSession(configuration: .default))
     
     // MARK: - ACTIONS
     @IBAction func tappedConverterButton(_ sender: Any) {
-        searchConvertion()
+        currencyATextField.resignFirstResponder()
+        searchConvertion() 
     }
     
     // MARK: - METHODES
@@ -28,48 +29,31 @@ class ConverterViewController: UIViewController {
         super.viewDidLoad()
         addShadowTocityLabel()
     }
-    
     private func addShadowTocityLabel() {
-        converterButton.layer.shadowColor = UIColor.brown.cgColor
+        converterButton.layer.shadowColor = UIColor.black.cgColor
         converterButton.layer.shadowOpacity = 0.9
     }
     
     func searchConvertion() {
         guard let currencyA = Double(currencyATextField.text!) else { return }
-        toggleActivityIndicator(shown: true)
+        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, validateConverterButton: converterButton)
         
         ConvertionService.shared.getConvertion(currencyA: currencyA) { (succes,settings, convertionResult) in
-            self.toggleActivityIndicator(shown: false)
+            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, validateConverterButton: self.converterButton)
             guard let result = convertionResult, succes == true else {
                 
-                self.presentAlert()
-        //   self.presentAlert(error: ConvertionService.Settings?(rawValue: String))
+                //   self.presentAlert()
+                self.presentAlert(error: settings ?? Settings.errorData)
                 
                 return
             }
-            self.updateConvertion (convertionResult: result)
+            self.updateConvertion (convertionResult: result, rateLabel: self.rateLabel)
             guard let rateUsd = convertionResult?.rates.USD else { return }
             let currencyB = currencyA * rateUsd
             self.currencyBLabel.text = "\(String(format: "%.2f",currencyB)) $"
         }
-        //  dismissKeyboard(_ sender: UITapGestureRecognizer)
     }
     
-    private func toggleActivityIndicator(shown: Bool) {
-        converterButton.isHidden = shown
-        ActivityIndicator.isHidden = !shown
-    }
-    
-    private func updateConvertion(convertionResult : ConvertionResult) {
-        rateLabel.text = String(format: "%.4f",convertionResult.rates.USD)
-    }
-    /*
-     func presentAlert() {
-     let alertVC = UIAlertController(title: "Error", message:"The currency download failed.", preferredStyle: .alert)
-     alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-     present(alertVC, animated: true, completion: nil)
-     }
-     */
 }
 
 

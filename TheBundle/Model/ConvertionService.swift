@@ -9,34 +9,26 @@ import Foundation
 import UIKit
 
 
-class ConvertionService {
-   
+
+class ConvertionService  {
+    
     // MARK: - PROPERTIES
     static var shared = ConvertionService()
-    private init() {}
-    
-    private let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=5ff447c427a92807c43a16e73c61691a")! // error voulu
+    //private init() {}
+    private let currencyUrl = URL(string: "http://data.fixer.io/api/latest?access_key=5ff447c427a92807c43a16e73c61691a")!
     private var task: URLSessionDataTask?
-    private var convertionSession = URLSession(configuration: .default)
+    private var convertionSession : URLSession
     
-    init( convertionSession: URLSession ) {
+    init(convertionSession: URLSession = URLSession(configuration: .default)) {
         self.convertionSession = convertionSession
     }
-   
+    
     // MARK: - METHODS
-    enum Settings: String {
-        case errorData = "Invalid data provider"
-        case errorReponseTranslate = "error Reponse Translate"
-        case errorJson = "error Json"
-    }
-    
-    
     func getConvertion(currencyA: Double, completionHandler: @escaping ((Bool, Settings?, ConvertionResult?) -> Void)) {
         var request = URLRequest(url: currencyUrl )
         request.httpMethod = "GET"
-
-        task?.cancel()
         
+        task?.cancel()
         task = convertionSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
@@ -47,18 +39,20 @@ class ConvertionService {
                     completionHandler (false, Settings.errorReponseTranslate, nil)
                     return
                 }
-                print(data)
                 guard let result = try? JSONDecoder().decode(ConvertionResult.self, from: data) else {
                     completionHandler (false, Settings.errorJson, nil)
                     return
                 }
                 completionHandler (true, nil, result)
-                
             }
-            
         }
         task?.resume()
     }
     
-   
+}
+
+enum Settings: String {
+    case errorData = "Invalid data provider"
+    case errorReponseTranslate = "error Reponse Translate"
+    case errorJson = "error Json"
 }
