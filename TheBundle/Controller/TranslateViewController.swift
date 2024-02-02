@@ -12,10 +12,10 @@ class TranslateViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var frenchTextField: UITextField!
     @IBOutlet weak var englishtextLabel: UILabel!
-    @IBOutlet weak var translateActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicatorTranslate: UIActivityIndicatorView!
     @IBOutlet weak var translateButton: UIButton!
     
-    // MARK: - Actions    
+    // MARK: - Actions
     @IBAction func tappedTranslateButton(_ sender: Any) {
         frenchTextField.resignFirstResponder()
         searchTranslate()
@@ -24,35 +24,21 @@ class TranslateViewController: UIViewController {
     // MARK: - Methodes
     override func viewDidLoad() {
         super.viewDidLoad()
-        addShadowTocityLabel()
-    }
-    
-    private func addShadowTocityLabel() {
-        translateButton.layer.shadowColor = UIColor.black.cgColor
-        translateButton.layer.shadowOpacity = 0.9
+        addShadowToTranslateButton(translateButton: translateButton)
     }
     
     func searchTranslate() {
         guard let frenchText = frenchTextField.text else { return }
-        toggleActivityIndicator(shown: true)
+        toggleActivityIndicatorTranslate(shown: true, translateButton: translateButton, activityIndicatorTranslate: activityIndicatorTranslate)
         
-        TranslateService.shared.getTranslation(frenchText: frenchText) { (succes,settings, translationResult) in
-            self.toggleActivityIndicator(shown: false)
+        TranslateService.shared.getTranslation(frenchText: frenchText) { (succes, settingsTranslation, translationResult) in
+            self.toggleActivityIndicatorTranslate(shown: false, translateButton: self.translateButton, activityIndicatorTranslate: self.activityIndicatorTranslate)
             guard let result = translationResult, succes == true else {
-              //  self.presentAlert()
+                self.presentAlertTranslate(error: settingsTranslation ?? SettingsTranslation.errorData)
                 return
             }
-            self.updateTranslate (translationResult: result)
+            self.updateTranslate (translationResult: result, englishtextLabel: self.englishtextLabel)
         }
-    }
-    
-    private func toggleActivityIndicator(shown: Bool) {
-        translateButton.isHidden = shown
-        translateActivityIndicator.isHidden = !shown
-    }
-    
-    private func updateTranslate (translationResult: TranslationResult) {
-        englishtextLabel.text = translationResult.data.translations[0].translatedText
     }
     
 }

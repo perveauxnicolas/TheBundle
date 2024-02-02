@@ -13,38 +13,29 @@ class ConverterViewController: UIViewController {
     @IBOutlet weak var currencyATextField: UITextField!
     @IBOutlet weak var currencyBLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var converterButton: UIButton!
-    
-    var convertionService = ConvertionService(convertionSession: URLSession(configuration: .default))
+    @IBOutlet weak var activityIndicatorConvertion: UIActivityIndicatorView!
     
     // MARK: - ACTIONS
     @IBAction func tappedConverterButton(_ sender: Any) {
         currencyATextField.resignFirstResponder()
-        searchConvertion() 
+        searchConvertion()
     }
     
     // MARK: - METHODES
     override func viewDidLoad() {
         super.viewDidLoad()
-        addShadowTocityLabel()
-    }
-    private func addShadowTocityLabel() {
-        converterButton.layer.shadowColor = UIColor.black.cgColor
-        converterButton.layer.shadowOpacity = 0.9
+        addShadowToConverterButton(converterButton: converterButton)
     }
     
     func searchConvertion() {
         guard let currencyA = Double(currencyATextField.text!) else { return }
-        toggleActivityIndicator(shown: true, activityIndicator: activityIndicator, validateConverterButton: converterButton)
+        toggleActivityIndicator(shown: true, activityIndicatorConvertion: activityIndicatorConvertion, validateConverterButton: converterButton)
         
-        ConvertionService.shared.getConvertion(currencyA: currencyA) { (succes,settings, convertionResult) in
-            self.toggleActivityIndicator(shown: false, activityIndicator: self.activityIndicator, validateConverterButton: self.converterButton)
+        ConvertionService.shared.getConvertion(currencyA: currencyA) { (succes, settingsConvertion, convertionResult) in
+            self.toggleActivityIndicator(shown: false, activityIndicatorConvertion: self.activityIndicatorConvertion, validateConverterButton: self.converterButton)
             guard let result = convertionResult, succes == true else {
-                
-                //   self.presentAlert()
-                self.presentAlert(error: settings ?? Settings.errorData)
-                
+                self.presentAlertConvertion(error: settingsConvertion ?? SettingsConvertion.errorData)
                 return
             }
             self.updateConvertion (convertionResult: result, rateLabel: self.rateLabel)
@@ -53,9 +44,7 @@ class ConverterViewController: UIViewController {
             self.currencyBLabel.text = "\(String(format: "%.2f",currencyB)) $"
         }
     }
-    
 }
-
 
 // MARK: - Keyboard
 extension ConverterViewController: UITextFieldDelegate {

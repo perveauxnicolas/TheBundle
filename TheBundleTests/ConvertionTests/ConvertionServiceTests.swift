@@ -8,8 +8,10 @@
 import XCTest
 @testable import TheBundle
 
+
 final class ConvertionServiceTests: XCTestCase {
 
+    
     func testGetConvertionShouldPostFailedCallback() {
         // Given
         let convertionService = ConvertionService(
@@ -23,11 +25,8 @@ final class ConvertionServiceTests: XCTestCase {
             XCTAssertNil(convertionResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
-    
-    
      
     func testGetConvertionShouldPostFailedCallbackIfNoData() {
         // Given
@@ -42,7 +41,6 @@ final class ConvertionServiceTests: XCTestCase {
             XCTAssertNil(convertionResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -59,10 +57,8 @@ final class ConvertionServiceTests: XCTestCase {
             XCTAssertNil(convertionResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
-    
     
     func testGetConvertionShouldPostFailedCallbackIfIncorrectData() {
         // Given
@@ -80,7 +76,6 @@ final class ConvertionServiceTests: XCTestCase {
             XCTAssertNil(convertionResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -104,7 +99,6 @@ final class ConvertionServiceTests: XCTestCase {
             
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
    

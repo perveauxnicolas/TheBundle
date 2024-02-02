@@ -8,86 +8,44 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
- 
+    
     // MARK: - Outlets
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherTemperature: UILabel!
     @IBOutlet weak var degreeLabel: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
-    @IBOutlet weak var weatherButton: UIButton!
     @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var cityNameLabelB: UILabel!
     @IBOutlet weak var weatherTemperatureB: UILabel!
     @IBOutlet weak var degreeBLabel: UILabel!
     @IBOutlet weak var weatherDescriptionB: UILabel!
     
-    
-    // MARK: - Actions
-    @IBAction func tappedWeatherButton(_ sender: Any) {
-        searchWeather()
-    }
-    
     // MARK: - Methodes
     override func viewDidLoad() {
         super.viewDidLoad()
         searchWeather()
-        addShadowTocityLabel()
-    }
-    
-    private func addShadowTocityLabel() {
-        weatherTemperature.layer.shadowColor = UIColor.blue.cgColor
-        weatherTemperature.layer.shadowOpacity = 0.9
-        degreeLabel.layer.shadowColor = UIColor.blue.cgColor
-        degreeLabel.layer.shadowOpacity = 0.9
-        weatherTemperatureB.layer.shadowColor = UIColor.blue.cgColor
-        weatherTemperatureB.layer.shadowOpacity = 0.9
-        degreeBLabel.layer.shadowColor = UIColor.blue.cgColor
-        degreeBLabel.layer.shadowOpacity = 0.9
-        weatherButton.layer.shadowColor = UIColor.black.cgColor
-        weatherButton.layer.shadowOpacity = 0.9
+        addShadowTocityLabel(weatherTemperature: weatherTemperature, degreeLabel: degreeLabel, weatherTemperatureB: weatherTemperatureB, degreeBLabel: degreeBLabel)
     }
     
     func searchWeather() {
-        toggleActivityIndicator(shown: true)
-        
-        WeatherService.shared.getWeather { (succes,settings, weatherResult) in
-            self.toggleActivityIndicator(shown: false)
+        WeatherService.shared.getWeather { (succes, settingsWeather, weatherResult) in
             guard let weatherResult = weatherResult, succes == true else {
-        //        self.presentAlert()
+                self.presentAlertWeather(error: settingsWeather ?? SettingsWeather.errorData)
                 return
             }
-            self.updateWeather(weatherResult: weatherResult)
+            self.updateWeather(weatherResult: weatherResult, cityNameLabel: self.cityNameLabel, weatherTemperature: self.weatherTemperature, weatherDescription: self.weatherDescription)
         }
-        
         let seconds = 0.8
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             
-            WeatherService.shared.getWeatherB { (succes,settings, weatherResultB) in
-                self.toggleActivityIndicator(shown: false)
+            WeatherService.shared.getWeatherB { (succes,settingsWeather, weatherResultB) in
                 guard let weatherResultB = weatherResultB, succes == true else {
-         //           self.presentAlert()
+                    self.presentAlertWeather(error: settingsWeather ?? SettingsWeather.errorData)
                     return
                 }
-                self.updateWeatherB(weatherResultB: weatherResultB)
+                self.updateWeatherB(weatherResultB: weatherResultB, cityNameLabelB: self.cityNameLabelB, weatherTemperatureB: self.weatherTemperatureB, weatherDescriptionB: self.weatherDescriptionB)
             }
         }
-    }
-    
-    private func toggleActivityIndicator(shown: Bool) {
-        weatherButton.isHidden = shown
-        ActivityIndicator.isHidden = !shown
-    }
-    
-    private func updateWeather(weatherResult: WeatherResult) {
-        cityNameLabel.text = weatherResult.name
-        weatherTemperature.text = String(format: "%.0f", weatherResult.main.temp)
-        weatherDescription.text = weatherResult.weather[0].description
-    }
-    
-    private func updateWeatherB(weatherResultB: WeatherResultB) {
-        cityNameLabelB.text = weatherResultB.name
-        weatherTemperatureB.text = String(format: "%.0f", weatherResultB.main.temp)
-        weatherDescriptionB.text = weatherResultB.weather[0].description
     }
     
 }

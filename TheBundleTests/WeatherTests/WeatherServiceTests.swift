@@ -25,10 +25,8 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
-    
     
     func testGetWeatherShouldPostFailedCallbackIfNoData() {
         // Given
@@ -44,7 +42,6 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -62,7 +59,6 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -85,11 +81,8 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResult)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
-    
-    
     
     func testGetWeatherShouldPostSuccessCallbackIfcorrectData() {
         // Given
@@ -114,10 +107,8 @@ final class WeatherServiceTests: XCTestCase {
             
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
-    
     
     func testGetWeatherBShouldPostFailedCallback() {
         // Given
@@ -133,10 +124,8 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResultB)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
-    
     
     func testGetWeatherBShouldPostFailedCallbackIfNoData() {
         // Given
@@ -152,7 +141,6 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResultB)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -170,7 +158,6 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResultB)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -193,7 +180,6 @@ final class WeatherServiceTests: XCTestCase {
             XCTAssertNil(weatherResultB)
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
@@ -222,7 +208,6 @@ final class WeatherServiceTests: XCTestCase {
             
             expectation.fulfill()
         }
-        
         wait(for: [expectation], timeout: 0.01)
     }
     
